@@ -11,6 +11,7 @@
     <main>
       <h1>Vanilla JavaScript App</h1>
       <p>Loading content from the API: <b id="message"></b></b></p>
+      <p>Loading warning message from the API: <b id="warning"></b></b></p>
     </main>
   </body>
 
@@ -22,4 +23,13 @@
       document.querySelector("#message").innerHTML = message.text
     })();
   </script>
+
+<script>
+  (async function () {
+    let response = await fetch(`api/warning`);
+    let message = await response.json();
+
+    document.querySelector("#warning").innerHTML = warning.text
+  })();
+</script>
 </html>
